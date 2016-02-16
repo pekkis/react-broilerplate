@@ -1,0 +1,38 @@
+{
+  "name": "@dr-kobros/react-broilerplate",
+  "version": "0.1.0",
+  "description": "React broilerplate",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "ava",
+    "build": "babel src -d lib",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pekkis/react-broilerplate.git"
+  },
+  "devDependencies": {
+    "ava": "^0.11.0",
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "eslint": "^1.10.3"
+  },
+  "keywords": [
+    "React",
+    "Redux"
+  ],
+  "author": "pekkis",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/pekkis/react-broilerplate/issues"
+  },
+  "homepage": "https://github.com/pekkis/react-broilerplate#readme",
+  "dependencies": {
+    "react-router-redux": "^3.0.0",
+    "redux-thunk": "^1.0.3"
+  }
+}
