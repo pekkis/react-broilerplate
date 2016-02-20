@@ -32,12 +32,21 @@
   },
   "homepage": "https://github.com/pekkis/react-broilerplate#readme",
   "dependencies": {
+    "autoprefixer": "^6.3.3",
+    "babel-loader": "^6.2.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.9.0",
+    "merge": "^1.2.0",
+    "postcss": "^5.0.16",
+    "precss": "^1.4.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.0",
     "react-router-redux": "^3.0.0",
     "redux": "^3.0.0",
-    "redux-thunk": "^1.0.0"
+    "redux-thunk": "^1.0.0",
+    "webpack": "^1.12.13",
+    "webpack-isomorphic-tools": "^2.2.29"
   }
 }
