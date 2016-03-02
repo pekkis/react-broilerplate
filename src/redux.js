@@ -1,17 +1,16 @@
 import { createStore as reduxCreateStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { syncHistory, routeReducer } from 'react-router-redux';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 export function createStore(
   reducers,
-  history,
+  rawHistory,
   middlewares = [],
   enhancers = []
 ) {
     const createStoreWithMiddleware = compose(
         applyMiddleware(
             thunk,
-            syncHistory(history),
             ...middlewares
         ),
         ...enhancers
@@ -19,9 +18,10 @@ export function createStore(
 
     const reducer = combineReducers({
         ...reducers,
-        routing: routeReducer
+        routing: routerReducer
     });
     const store = createStoreWithMiddleware(reducer);
+    const history = syncHistoryWithStore(rawHistory, store);
 
-    return store;
+    return { history, store };
 }
