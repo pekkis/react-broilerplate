@@ -2,14 +2,19 @@ import { createStore as reduxCreateStore, applyMiddleware, combineReducers, comp
 import thunk from 'redux-thunk';
 import { syncHistory, routeReducer } from 'react-router-redux';
 
-export function createStore(reducers, history) {
-
+export function createStore(
+  reducers,
+  history,
+  middlewares = [],
+  enhancers = []
+) {
     const createStoreWithMiddleware = compose(
         applyMiddleware(
             thunk,
             syncHistory(history),
+            ...middlewares
         ),
-        window.devToolsExtension ? window.devToolsExtension() : f => f
+        ...enhancers
     )(reduxCreateStore);
 
     const reducer = combineReducers({
