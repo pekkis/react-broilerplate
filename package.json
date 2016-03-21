@@ -1,6 +1,6 @@
 {
   "name": "@dr-kobros/react-broilerplate",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "React broilerplate",
   "main": "lib/index.js",
   "scripts": {
