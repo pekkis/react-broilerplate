@@ -1,3 +1,5 @@
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
 export function getStyleLoader(env, ret, loaders)
 {
     var loader;
