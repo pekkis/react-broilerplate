@@ -1,25 +1,23 @@
 export default function createFetchers(store) {
 
-    return {
+  return {
 
-        prefetcher: function(nextState, replaceState, callback) {
+    prefetcher: function(nextState, replaceState, callback) {
 
-            if (!this.component.fetch) {
-                callback();
-                return;
-            }
+      if (!this.component.fetch) {
+        callback();
+        return;
+      }
 
-            this.component.fetch(store, nextState).then(callback);
-        },
+      this.component.fetch(store, nextState).then(callback);
+    },
 
-        fetcher: function(nextState, replaceState) {
+    fetcher: function(nextState, replaceState) {
 
-            if (this.component.fetch) {
-                this.component.fetch(store, nextState);
-            }
-        }
+      if (this.component.fetch) {
+        this.component.fetch(store, nextState);
+      }
+    }
 
-    };
+  };
 }
-
-
