@@ -8,20 +8,20 @@ export function createStore(
   middlewares = [],
   enhancers = []
 ) {
-    const createStoreWithMiddleware = compose(
-        applyMiddleware(
-            thunk,
-            ...middlewares
-        ),
-        ...enhancers
-    )(reduxCreateStore);
+  const createStoreWithMiddleware = compose(
+    applyMiddleware(
+      thunk,
+      ...middlewares
+    ),
+    ...enhancers
+  )(reduxCreateStore);
 
-    const reducer = combineReducers({
-        ...reducers,
-        routing: routerReducer
-    });
-    const store = createStoreWithMiddleware(reducer);
-    const history = syncHistoryWithStore(rawHistory, store);
+  const reducer = combineReducers({
+    ...reducers,
+    routing: routerReducer
+  });
+  const store = createStoreWithMiddleware(reducer);
+  const history = syncHistoryWithStore(rawHistory, store);
 
-    return { history, store };
+  return { history, store };
 }
