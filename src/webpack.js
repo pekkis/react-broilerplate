@@ -1,16 +1,20 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-export function getStyleLoader(env, ret, loaders)
-{
-  var loader;
-  if (env === 'prod' || env === 'production') {
-    ret.loader = ExtractTextPlugin.extract(
-      'style-loader',
-      loaders
-    );
+export function getStyleLoader(env, base) {
+  const ret = {
+    ...base,
+  };
+
+  if (env === 'production') {
+    ret.loaders = [
+      ExtractTextPlugin.extract(
+        'style-loader',
+        base.loaders
+      ),
+    ];
   } else { // not production
-    loaders.unshift('style-loader');
-    ret.loaders = loaders;
+    ret.loaders.unshift('style-loader');
   }
+
   return ret;
 }

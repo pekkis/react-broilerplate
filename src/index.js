@@ -1,9 +1,9 @@
 import app from './app';
 import redux from './redux';
-import universal from './universal';
+import webpack from './webpack';
 
 export {
   app,
   redux,
-  universal
+  webpack,
 };
