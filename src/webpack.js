@@ -6,12 +6,10 @@ export function getStyleLoader(env, base) {
   };
 
   if (env === 'production') {
-    ret.loader = [
-      ExtractTextPlugin.extract(
-        'style-loader',
-        base.loaders
-      ),
-    ];
+    ret.loader = ExtractTextPlugin.extract(
+      'style-loader',
+      base.loaders
+    );
     delete ret.loaders;
   } else {
     ret.loaders.unshift('style-loader');
